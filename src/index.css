@@ -1,68 +1,395 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* Ice Cream Pastel Portfolio Theme - All colors MUST be HSL */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Main Background Colors */
+    --background: 329 100% 97%;
+    --foreground: 15 25% 25%;
+
+    /* Card Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 15 25% 25%;
+
+    /* Popover Colors */
+    --popover: 0 0% 100%;
+    --popover-foreground: 15 25% 25%;
+
+    /* Ice Cream Pastel Color Palette */
+    --strawberry-cream: 325 100% 90%;
+    --vanilla-cream: 41 100% 95%;
+    --mint-cream: 158 55% 78%;
+    --lavender-cream: 291 46% 83%;
+    --peach-cream: 0 100% 84%;
+    --blueberry-cream: 207 89% 86%;
+
+    /* Primary Theme Colors */
+    --primary: 345 65% 75%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 345 85% 85%;
+
+    /* Secondary Theme Colors */
+    --secondary: 165 45% 85%;
+    --secondary-foreground: 15 25% 25%;
+
+    /* Muted Colors */
+    --muted: 48 60% 92%;
+    --muted-foreground: 15 15% 45%;
+
+    /* Accent Colors */
+    --accent: 280 50% 85%;
+    --accent-foreground: 15 25% 25%;
+
+    /* Status Colors */
+    --destructive: 0 75% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Border and Input */
+    --border: 345 30% 90%;
+    --input: 345 30% 92%;
+    --ring: 345 65% 75%;
+
+    /* Design System Tokens */
+    --radius: 1rem;
+
+    /* Ice Cream Gradients */
+    --gradient-strawberry: linear-gradient(135deg, hsl(var(--strawberry-cream)), hsl(var(--primary-glow)));
+    --gradient-vanilla: linear-gradient(135deg, hsl(var(--vanilla-cream)), hsl(var(--peach-cream)));
+    --gradient-mint: linear-gradient(135deg, hsl(var(--mint-cream)), hsl(var(--secondary)));
+    --gradient-rainbow: linear-gradient(135deg, hsl(var(--strawberry-cream)), hsl(var(--vanilla-cream)), hsl(var(--mint-cream)), hsl(var(--lavender-cream)));
+
+    /* Smooth Shadows */
+    --shadow-soft: 0 4px 20px -2px hsl(var(--primary) / 0.1);
+    --shadow-dreamy: 0 8px 40px -4px hsl(var(--primary) / 0.15);
+    --shadow-float: 0 12px 60px -8px hsl(var(--primary) / 0.2);
+
+    /* Smooth Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar Colors */
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    /* Dark Ice Cream Theme */
+    --background: 280 15% 12%;
+    --foreground: 48 50% 95%;
+
+    --card: 280 15% 15%;
+    --card-foreground: 48 50% 95%;
+
+    --popover: 280 15% 15%;
+    --popover-foreground: 48 50% 95%;
+
+    /* Dark Pastel Colors */
+    --strawberry-cream: 345 45% 35%;
+    --vanilla-cream: 48 45% 35%;
+    --mint-cream: 165 35% 35%;
+    --lavender-cream: 280 25% 35%;
+    --peach-cream: 25 45% 35%;
+    --blueberry-cream: 210 35% 35%;
+
+    --primary: 345 55% 65%;
+    --primary-foreground: 48 50% 95%;
+    --primary-glow: 345 65% 55%;
+
+    --secondary: 165 35% 45%;
+    --secondary-foreground: 48 50% 95%;
+
+    --muted: 280 10% 20%;
+    --muted-foreground: 48 20% 70%;
+
+    --accent: 280 30% 45%;
+    --accent-foreground: 48 50% 95%;
+
+    --destructive: 0 55% 55%;
+    --destructive-foreground: 48 50% 95%;
+
+    --border: 280 15% 25%;
+    --input: 280 15% 20%;
+    --ring: 345 55% 65%;
+
+    /* Dark Gradients */
+    --gradient-strawberry: linear-gradient(135deg, hsl(var(--strawberry-cream)), hsl(var(--primary-glow)));
+    --gradient-vanilla: linear-gradient(135deg, hsl(var(--vanilla-cream)), hsl(var(--peach-cream)));
+    --gradient-mint: linear-gradient(135deg, hsl(var(--mint-cream)), hsl(var(--secondary)));
+    --gradient-rainbow: linear-gradient(135deg, hsl(var(--strawberry-cream)), hsl(var(--vanilla-cream)), hsl(var(--mint-cream)), hsl(var(--lavender-cream)));
+
+    --sidebar-background: 280 15% 12%;
+    --sidebar-foreground: 48 50% 95%;
+    --sidebar-primary: 345 55% 65%;
+    --sidebar-primary-foreground: 48 50% 95%;
+    --sidebar-accent: 280 15% 20%;
+    --sidebar-accent-foreground: 48 50% 95%;
+    --sidebar-border: 280 15% 25%;
+    --sidebar-ring: 345 55% 65%;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Ice Cream Button Variants */
+  .btn-strawberry {
+    @apply bg-gradient-to-r from-[hsl(var(--strawberry-cream))] to-[hsl(var(--primary-glow))] text-foreground rounded-[var(--radius)] px-6 py-3 font-medium shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-dreamy)] transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  .btn-vanilla {
+    @apply bg-gradient-to-r from-[hsl(var(--vanilla-cream))] to-[hsl(var(--peach-cream))] text-foreground rounded-[var(--radius)] px-6 py-3 font-medium shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-dreamy)] transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  .btn-mint {
+    @apply bg-gradient-to-r from-[hsl(var(--mint-cream))] to-[hsl(var(--secondary))] text-foreground rounded-[var(--radius)] px-6 py-3 font-medium shadow-[var(--shadow-soft)] hover:shadow-[var(--shadow-dreamy)] transition-[var(--transition-smooth)] hover:scale-105;
+  }
+
+  /* Section Backgrounds */
+  .section-strawberry {
+    @apply bg-gradient-to-br from-[hsl(var(--strawberry-cream))] to-[hsl(var(--primary-glow))] min-h-screen py-20;
+  }
+
+  .section-vanilla {
+    @apply bg-gradient-to-br from-[hsl(var(--vanilla-cream))] to-[hsl(var(--peach-cream))] min-h-screen py-20;
+  }
+
+  .section-mint {
+    @apply bg-gradient-to-br from-[hsl(var(--mint-cream))] to-[hsl(var(--secondary))] min-h-screen py-20;
+  }
+
+  .section-lavender {
+    @apply bg-gradient-to-br from-[hsl(var(--lavender-cream))] to-[hsl(var(--accent))] min-h-screen py-20;
+  }
+
+  /* Floating Animation */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-animation-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  /* Drip Effect */
+  .drip-effect {
+    position: relative;
+  }
+
+  .drip-effect::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid currentColor;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  }
+
+  /* Ice Cream Melt Effects */
+  .melt-overlay {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, 
+      transparent 0%, 
+      hsl(var(--primary) / 0.1) 30%, 
+      hsl(var(--primary) / 0.2) 60%, 
+      hsl(var(--primary) / 0.4) 100%);
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    animation: melt-drip 4s ease-in-out infinite;
+  }
+
+  .melt-drops {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 40px;
+    pointer-events: none;
+  }
+
+  .melt-drop {
+    position: absolute;
+    width: 8px;
+    height: 20px;
+    background: hsl(var(--primary) / 0.6);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: drip-fall 3s ease-in infinite;
+  }
+
+  .melt-drop:nth-child(1) { left: 20%; animation-delay: 0s; }
+  .melt-drop:nth-child(2) { left: 40%; animation-delay: 1s; }
+  .melt-drop:nth-child(3) { left: 60%; animation-delay: 2s; }
+  .melt-drop:nth-child(4) { left: 80%; animation-delay: 0.5s; }
+
+  .section-divider {
+    position: relative;
+    height: 100px;
+    background: linear-gradient(45deg, 
+      hsl(var(--strawberry-cream)) 0%, 
+      hsl(var(--vanilla-cream)) 25%, 
+      hsl(var(--mint-cream)) 50%, 
+      hsl(var(--lavender-cream)) 75%, 
+      hsl(var(--peach-cream)) 100%);
+    overflow: hidden;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: inherit;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    animation: melt-wave 6s ease-in-out infinite;
+  }
+
+  .floating-melt {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: float-melt 8s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes melt-drip {
+  0%, 100% {
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+    transform: scaleY(1);
+  }
+  50% {
+    border-radius: 0 0 60% 60% / 0 0 120% 120%;
+    transform: scaleY(1.1);
+  }
+}
+
+@keyframes drip-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px) scaleY(0.5);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(30px) scaleY(1.2);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(60px) scaleY(0.8);
+  }
+}
+
+@keyframes melt-wave {
+  0%, 100% {
+    transform: translateX(0) scaleX(1);
+  }
+  25% {
+    transform: translateX(-10px) scaleX(1.05);
+  }
+  75% {
+    transform: translateX(10px) scaleX(0.95);
+  }
+}
+
+@keyframes float-melt {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+    border-radius: 50%;
+  }
+  25% {
+    transform: translateY(-15px) rotate(90deg);
+    border-radius: 60% 40% 50% 70%;
+  }
+  50% {
+    transform: translateY(-30px) rotate(180deg);
+    border-radius: 40% 60% 70% 50%;
+  }
+  75% {
+    transform: translateY(-15px) rotate(270deg);
+    border-radius: 70% 50% 40% 60%;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
